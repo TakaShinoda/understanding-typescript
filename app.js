@@ -1,5 +1,6 @@
 var person = {
     name: 'takahiro',
-    age: 24
+    age: 25,
+    hobbies: ['Sports', 'Cooking']
 };
 console.log(person);
