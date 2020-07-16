@@ -1,3 +1,4 @@
+"use strict";
 var person = {
     name: 'takahiro',
     age: 25,
