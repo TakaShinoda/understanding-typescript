@@ -4,4 +4,8 @@ const person = {
     hobbies: ['Sports', 'Cooking']
 }
 
+
+let age: number
+age = 30
+
 console.log(person)
