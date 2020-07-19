@@ -36,8 +36,8 @@
     // "alwaysStrict": true,                  /* Parse in strict mode and emit "use strict" for each source file. */
 
     /* Additional Checks */
-    // "noUnusedLocals": true,                /* Report errors on unused locals. */
-    // "noUnusedParameters": true,            /* Report errors on unused parameters. */
+    // "noUnusedLocals": true,                /* Report errors on unused locals. 利用されていないローカル変数は許可しない、グローバル変数は許可する*/
+    // "noUnusedParameters": true,            /* Report errors on unused parameters. 利用されていないパラメータは許可しない*/
     // "noImplicitReturns": true,             /* Report error when not all code paths in function return a value. */
     // "noFallthroughCasesInSwitch": true,    /* Report errors for fallthrough cases in switch statement. */
 
@@ -65,7 +65,7 @@
 
     /* Advanced Options */
     "skipLibCheck": true,                     /* Skip type checking of declaration files. */
-    "forceConsistentCasingInFileNames": true  /* Disallow inconsistently-cased references to the same file. */
+    "forceConsistentCasingInFileNames": true  /* Disallow inconsistently-cased references to the same file.  ファイル名の大文字小文字が正しいか*/
   }
   // "exclude": ["node_modules"] //tsのコンパイルに含めたくないファイる would be default
   // "include": ["app.ts"] //tsのコンパイルに含める
