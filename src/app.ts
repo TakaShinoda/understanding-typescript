@@ -15,3 +15,13 @@ let age: number
 age = 30
 
 console.log(person)
+
+
+const add = (a: number, b: number) => a + b
+
+
+const printOutput: (output: string | number)=> void = output => {
+    console.log(output)
+}
+
+console.log(add(2, 5))
