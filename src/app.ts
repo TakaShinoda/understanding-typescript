@@ -1,8 +1,8 @@
-const person = {
-  name: 'takahiro',
-  age: 25,
-  hobbies: ['Sports', 'Cooking'],
-}
+// const person = {
+//   name: 'takahiro',
+//   age: 25,
+//   hobbies: ['Sports', 'Cooking'],
+// }
 
 function add2(n1: number, n2: number) {
   if (n1 + n2 > 0) {
@@ -11,10 +11,10 @@ function add2(n1: number, n2: number) {
   // return undefined
 }
 
-let age: number
-age = 30
+// let age: number
+// age = 30
 
-console.log(person)
+// console.log(person)
 
 // const add = (a: number, b: number = 1) => a + b
 
@@ -29,22 +29,27 @@ const activeHobbies = ['Hiking']
 
 activeHobbies.push(...hobbies)
 
-const Person = {
-  name: 'Max',
+const person = {
+  firstName: 'Max',
   age: 30,
 }
 
 const copiedPerson = {
-  ...Person,
+  ...person,
 }
 
 // redure('計算を行う関数', '初期値')
 const add = (...numbers: number[]) => {
-    return numbers.reduce((curResult, curValue) => {
-        return curResult + curValue
-    },0)
+  return numbers.reduce((curResult, curValue) => {
+    return curResult + curValue
+  }, 0)
 }
-
 
 const addedNumbers = add(5, 10, 2, 3.7)
 console.log(addedNumbers)
+
+// デストラクチャリング
+const [hobby1, hobby2, ...remainingHobbies] = hobbies
+const { firstName, age } = person
+
+console.log(firstName, age)
