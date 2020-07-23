@@ -5,8 +5,18 @@ class Department {
     constructor(n: string) {
         this.name = n
     }
+
+    // メソッド
+    // ダミーパラメータを追加して型の安全性を高める
+    describe(this: Department) {
+        console.log("Department: " + this.name)
+    }
 }
 
 // 新しいクラス作成
 const accounting = new Department('Accounting'); //コンストラクタ呼ばれれる
-console.log(accounting)
+accounting.describe();
+
+const accountingCopy = { name: 'DUMMY', describe: accounting.describe }
+// thisはドットの前
+accountingCopy.describe()
