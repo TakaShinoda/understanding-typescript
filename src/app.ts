@@ -1,17 +1,19 @@
 class Department {
-  name: string
-//   publicデフォルト
+  //   private id: string
+  //   name: string
+  // publicデフォルト
   private employees: string[] = []
 
-  // class及びclassを元に作られたオブジェクトと紐づく引数
-  constructor(n: string) {
-    this.name = n
+  // class及びclassを元に作られたオブジェクトと紐づく引数 constructorではpublic省略しない
+  constructor(private id: string, public name: string) {
+    // this.id = id
+    // this.name = n
   }
 
   // メソッド
   // ダミーパラメータを追加して型の安全性を高める
   describe(this: Department) {
-    console.log('Department: ' + this.name)
+    console.log(`Department (${this.id}): ${this.name}`)
   }
 
   addEmployees(employees: string) {
@@ -25,7 +27,7 @@ class Department {
 }
 
 // 新しいクラス作成
-const accounting = new Department('Accounting') //コンストラクタ呼ばれれる
+const accounting = new Department('d1', 'Accounting') //コンストラクタ呼ばれれる
 accounting.addEmployees('Max')
 accounting.addEmployees('Manu')
 
