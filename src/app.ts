@@ -27,17 +27,44 @@ class Department {
   }
 }
 
+class ITDepartment extends Department {
+    constructor(id: string, private admins: string[]) {
+        // super：ベースクラスのコンストラクタを呼び出す
+        super(id, 'IT')
+    }
+}
+
+class AccountingDepartment extends Department {
+    constructor(id: string, private reports: string[]) {
+        // super：ベースクラスのコンストラクタを呼び出す
+        super(id, 'Accounting')
+    }
+
+    addReport(text: string) {
+        this.reports.push(text)
+    }
+
+    printReports() {
+        console.log(this.reports)
+    }
+}
+
 // 新しいクラス作成
-const accounting = new Department('d1', 'Accounting') //コンストラクタ呼ばれれる
-accounting.addEmployees('Max')
-accounting.addEmployees('Manu')
+const it = new ITDepartment('d1', ['Max']) //コンストラクタ呼ばれれる
+it.addEmployees('Max')
+it.addEmployees('Manu')
 
 // 外部からclassの中にアクセスさせたくない
-// accounting.employees[2] = 'Anna'
+// it.employees[2] = 'Anna'
 
-accounting.describe()
-accounting.printEmployeeInfomatiion()
+it.describe()
+it.printEmployeeInfomatiion()
 
-// const accountingCopy = { name: 'DUMMY', describe: accounting.describe }
+// const itCopy = { name: 'DUMMY', describe: it.describe }
 // thisはドットの前
 // accountingCopy.describe()
+
+console.log(it)
+
+const accounting = new AccountingDepartment('d2', [])
+
