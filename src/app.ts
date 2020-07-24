@@ -1,11 +1,11 @@
 class Department {
-  //   private id: string
+  //   private readonly id: string
   //   name: string
   // publicデフォルト
   private employees: string[] = []
 
   // class及びclassを元に作られたオブジェクトと紐づく引数 constructorではpublic省略しない
-  constructor(private id: string, public name: string) {
+  constructor(private readonly id: string, public name: string) {
     // this.id = id
     // this.name = n
   }
@@ -17,6 +17,7 @@ class Department {
   }
 
   addEmployees(employees: string) {
+    // this.id = 'd2'
     this.employees.push(employees)
   }
 
