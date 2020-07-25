@@ -1,4 +1,6 @@
-class Department {
+// abstractはnewできない
+
+abstract class Department {
   //   private readonly id: string
   //   name: string
   // publicデフォルト
@@ -16,16 +18,16 @@ class Department {
   }
 
   // class及びclassを元に作られたオブジェクトと紐づく引数 constructorではpublic省略しない
-  constructor(private readonly id: string, public name: string) {
+  constructor(public readonly id: string, public name: string) {
     // this.id = id
     // this.name = n
   }
 
   // メソッド
   // ダミーパラメータを追加して型の安全性を高める
-  describe(this: Department) {
-    console.log(`Department (${this.id}): ${this.name}`)
-  }
+
+  // abstractクラス、サブクラスで実装する事を強制
+  abstract describe(this: Department): void
 
   addEmployees(employees: string) {
     // this.id = 'd2'
@@ -42,6 +44,10 @@ class ITDepartment extends Department {
   constructor(id: string, private admins: string[]) {
     // super：ベースクラスのコンストラクタを呼び出す
     super(id, 'IT')
+  }
+
+  describe() {
+    console.log('IT部門 - ID' + this.id)
   }
 }
 
@@ -86,6 +92,10 @@ class AccountingDepartment extends Department {
     }
 
     this.employees.push(this.name)
+  }
+
+  describe() {
+    console.log('会計部門 - ID' + this.id)
   }
 }
 
