@@ -39,13 +39,33 @@ class ITDepartment extends Department {
 
 // 継承
 class AccountingDepartment extends Department {
+  private lastReport: string
+
+  // getter
+  get mostRecentReport() {
+    if (this.lastReport) {
+      return this.lastReport
+    }
+    throw new Error('レポートが見つかりません。')
+  }
+
+  // setter
+  set mostRecentReport(value: string) {
+    if (!value) {
+      throw new Error('正しい値を設定してください。')
+    }
+    this.addReport(value)
+  }
+
   constructor(id: string, private reports: string[]) {
     // super：ベースクラスのコンストラクタを呼び出す
     super(id, 'Accounting')
+    this.lastReport = reports[0]
   }
 
   addReport(text: string) {
     this.reports.push(text)
+    this.lastReport = text
   }
 
   printReports() {
@@ -79,3 +99,11 @@ it.printEmployeeInfomatiion()
 console.log(it)
 
 const accounting = new AccountingDepartment('d2', [])
+
+// ゲッターはドットでアクセスできる。()は不要
+console.log(accounting.mostRecentReport)
+// セッター
+accounting.mostRecentReport = '通期会計レポート'
+
+accounting.addReport('Something')
+accounting.printReports()
