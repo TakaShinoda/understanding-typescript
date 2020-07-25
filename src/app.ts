@@ -2,7 +2,10 @@ class Department {
   //   private readonly id: string
   //   name: string
   // publicデフォルト
-  private employees: string[] = []
+  //   private employees: string[] = []
+
+  // protected: privateのように外部からアクセスはできないが継承したサブクラスからはアクセスできる
+  protected employees: string[] = []
 
   // class及びclassを元に作られたオブジェクトと紐づく引数 constructorではpublic省略しない
   constructor(private readonly id: string, public name: string) {
@@ -28,25 +31,34 @@ class Department {
 }
 
 class ITDepartment extends Department {
-    constructor(id: string, private admins: string[]) {
-        // super：ベースクラスのコンストラクタを呼び出す
-        super(id, 'IT')
-    }
+  constructor(id: string, private admins: string[]) {
+    // super：ベースクラスのコンストラクタを呼び出す
+    super(id, 'IT')
+  }
 }
 
+// 継承
 class AccountingDepartment extends Department {
-    constructor(id: string, private reports: string[]) {
-        // super：ベースクラスのコンストラクタを呼び出す
-        super(id, 'Accounting')
+  constructor(id: string, private reports: string[]) {
+    // super：ベースクラスのコンストラクタを呼び出す
+    super(id, 'Accounting')
+  }
+
+  addReport(text: string) {
+    this.reports.push(text)
+  }
+
+  printReports() {
+    console.log(this.reports)
+  }
+
+  addEmployee(name: string) {
+    if (name === 'Max') {
+      return
     }
 
-    addReport(text: string) {
-        this.reports.push(text)
-    }
-
-    printReports() {
-        console.log(this.reports)
-    }
+    this.employees.push(this.name)
+  }
 }
 
 // 新しいクラス作成
@@ -67,4 +79,3 @@ it.printEmployeeInfomatiion()
 console.log(it)
 
 const accounting = new AccountingDepartment('d2', [])
-
