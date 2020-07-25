@@ -4,8 +4,16 @@ class Department {
   // publicデフォルト
   //   private employees: string[] = []
 
+  // 静的プロパティ
+  static fiscalYear = 2020
+
   // protected: privateのように外部からアクセスはできないが継承したサブクラスからはアクセスできる
   protected employees: string[] = []
+
+  // 静的メソッド
+  static createEmployee(name: string) {
+    return { name: name }
+  }
 
   // class及びclassを元に作られたオブジェクトと紐づく引数 constructorではpublic省略しない
   constructor(private readonly id: string, public name: string) {
@@ -81,8 +89,13 @@ class AccountingDepartment extends Department {
   }
 }
 
+// staticメソッド
+const employee1 = Department.createEmployee('Max')
+console.log(employee1, Department.fiscalYear)
+
 // 新しいクラス作成
 const it = new ITDepartment('d1', ['Max']) //コンストラクタ呼ばれれる
+
 it.addEmployees('Max')
 it.addEmployees('Manu')
 
