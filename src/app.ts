@@ -20,6 +20,7 @@ interface Named {
 
 // publicやprivateは使用できない typeでも同様 オブジェクトはinterfaceが一般的
 // 継承: extends
+//　カンマ区切りで複数検証可能 interface飲み named, another
 interface Greetable extends Named {
   greet(phrase: string): void
 }
