@@ -14,8 +14,9 @@
 //   greet(phrase: string): void
 // }
 
+// publicやprivateは使用できない typeでも同様 オブジェクトはinterfaceが一般的
 interface Greetable {
-  name: string
+  readonly name: string
 
   greet(phrase: string): void
 }
