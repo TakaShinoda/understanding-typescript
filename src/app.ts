@@ -14,10 +14,13 @@
 //   greet(phrase: string): void
 // }
 
-// publicやprivateは使用できない typeでも同様 オブジェクトはinterfaceが一般的
-interface Greetable {
+interface Named {
   readonly name: string
+}
 
+// publicやprivateは使用できない typeでも同様 オブジェクトはinterfaceが一般的
+// 継承: extends
+interface Greetable extends Named {
   greet(phrase: string): void
 }
 
