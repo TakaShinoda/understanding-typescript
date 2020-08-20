@@ -27,6 +27,7 @@ addd = (n1: number, n2: number) => {
 
 interface Named {
   readonly name: string
+  outputName?: string
 }
 
 // publicやprivateは使用できない typeでも同様 オブジェクトはinterfaceが一般的
